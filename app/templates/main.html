@@ -1,0 +1,34 @@
+<div>
+    <h1>
+        Django Gamification Example
+    </h1>
+
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Badges</th>
+            <th>Points</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.badges }}</td>
+            <td>{{ user.points }}</td>
+            <td>
+                {% if user.random_award_badge_id %}
+                <form action="{% url 'award-badge' user.random_award_badge_id %}">
+                    <button type="submit">Award Random Badge</button>
+                </form>
+                {% endif %}
+                {% if user.random_revoke_badge_id %}
+                <form action="{% url 'revoke-badge' user.random_revoke_badge_id %}">
+                    <button type="submit">Revoke Random Badge</button>
+                </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
