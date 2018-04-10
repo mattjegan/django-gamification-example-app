@@ -1,4 +1,4 @@
-import secrets
+import random 
 
 from django.views.generic import TemplateView, RedirectView
 from django_gamification.models import Badge
@@ -22,8 +22,8 @@ class MainView(TemplateView):
                 'id': user.id,
                 'badges': ', '.join([b.name for b in acquired_badges]),
                 'points': user.interface.points,
-                'random_award_badge_id': secrets.choice(award_badge_ids) if award_badge_ids else None,
-                'random_revoke_badge_id': secrets.choice(revoke_badge_ids) if revoke_badge_ids else None
+                'random_award_badge_id': random.choice(award_badge_ids) if award_badge_ids else None,
+                'random_revoke_badge_id': random.choice(revoke_badge_ids) if revoke_badge_ids else None
             })
 
         context['users'] = user_data
