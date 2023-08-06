@@ -4,8 +4,8 @@
       "cpus": 2
     },
     "waitFor": "onCreateCommand",
-    "updateContentCommand": "python -m pip install --upgrade pip && pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic && python manage.py create-examples",
-    "postCreateCommand": "",
+    "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic && python manage.py create-examples",
+    "postCreateCommand": "python -m pip install --upgrade pip",
     "postAttachCommand": {
       "server": "python manage.py runserver"
     },
