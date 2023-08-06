@@ -6,8 +6,9 @@ This project has been made to serve as an example app to [Django Gamification](h
 ```
 git clone https://github.com/mattjegan/django-gamification-example-app
 cd django-gamification-example-app
-pipenv install
-pipenv shell
+python -m venv .venv
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 python manage.py migrate
 python manage.py create-examples
 python manage.py runserver
